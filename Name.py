@@ -1,4 +1,4 @@
-def print_something(name, age):
-    print("My name is " + name + " and my age is " + age)
+def print_something(name = "someone", age = "Unknown"):
+    print("My name is ", name, " and my age is ", age)
 
-print_something("Chetan", "29")
+print_something(None, 27)
