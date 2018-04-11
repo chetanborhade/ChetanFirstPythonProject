@@ -58,10 +58,11 @@ class Person:
 
     def choose_action(self):
         i = 1
-        print("Actions")
+        print(bcolors.OKBLUE + bcolors.BOLD + "Action" + bcolors.ENDC)
         for item in self.actions:
             print(str(i) + ":", item)
             i += 1
+
     def choose_magic(self):
         i = 1
         print("magic")
