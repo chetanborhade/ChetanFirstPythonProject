@@ -16,12 +16,12 @@ while running:
     print("==============================")
     player.choose_action()
     choice = input("Choose action:")
-    index = int (choice) - 1
+    index = int(choice) - 1
 
     if index == 0:
         dmg = player.generate_damage()
         enemy.take_damage(dmg)
-        print("You attacked for", dmg, "points of damage. Enemy HP:", enemy.get_hp())
+        print("You attacked for", dmg, "points of damage.")
     elif index == 1:
         player.choose_magic()
         magic_choice = int(input("choose magic:" )) - 1
@@ -29,7 +29,7 @@ while running:
         spell = player.get_spell_name(magic_choice)
         cost = player.get_spell_mp_cost(magic_choice)
 
-        current mp = player.get_mp()
+        current_mp = player.get_mp()
 
         if cost > current_mp:
             print(bcolors.FAIL + "\nNot enough MP\n" + bcolors.ENDC)
@@ -37,7 +37,7 @@ while running:
 
         player.reduce_mp(cost)
         enemy.take_damage(magic_dmg)
-
+        print(bcolors.OKBLUE + "\n" + spell + "deals", str(magic_dmg), "points of damage" + bcolors.ENDC)
 
 
 
@@ -45,7 +45,16 @@ while running:
 
     enemy_dmg = enemy.generate_damage()
     player.take_damage(enemy_dmg)
-    print("Enemy attacks for", enemy_dmg, "Player HP", player.get_hp())
+    print("Enemy attacks for", enemy_dmg)
+
+    print("=========================")
+    print("Enemy HP:", bcolors.FAIL + str(enemy.get_hp()) + "/" + str(enemy.get_max_hp()) + bcolors.ENDC + "\n")
+
+    print("Your HP:", bcolors.OKGREEN + str(player.get_hp()) + "/" + str (player.get_max_hp()) + bcolors.ENDC)
+    print("Your MP:", bcolors.OKBLUE + str(player.get_mp()) + "/" + str (player.get_max_mp()) + bcolors.ENDC + "\n")
+
+
+
 
     if enemy.get_hp() == 0:
         print(blocker.OKGREEN + "You Win!" + bcolors.ENDC)
