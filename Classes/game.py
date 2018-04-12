@@ -16,11 +16,11 @@ class Person:
         self.hp = hp
         self.maxmp = mp
         self.mp = mp
-        self.atkl = atk -10
-        self.atkh = atk +10
+        self.atkl = atk - 10
+        self.atkh = atk + 10
         self.df = df
         self.magic = magic
-        self.actions = ["Attack, Magic"]
+        self.actions = ["Attack", "Magic"]
 
     def generate_damage(self):
         return random.randrange(self.atkl, self.atkh)
