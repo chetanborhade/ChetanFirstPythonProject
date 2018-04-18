@@ -1,8 +1,9 @@
 import requests
+import json
 
-my_data = {"name": "Chetan", "email": "chetan@example.com"}
+url = "https://wwww.googleapis.com/urlshortener/v1/url"
+payload = {"longUrl": "http://example.com"}
+headers = {"content-type": "application/json"}
+r = requests.post(url, json=payload, headers=headers)
 
-r = requests.post("https://www.w3schools.com/php/welcome.php", data=my_data)
-
-f = open("myfile.html", "w+")
-f.write(r.text)
+print(r.headers)
