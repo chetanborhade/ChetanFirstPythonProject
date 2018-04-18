@@ -1,19 +1,8 @@
 import requests
-from io import BytesIO
-from PIL import Image
 
-r = requests.get("https://wallpaperstudio10.com/static/wpdb/wallpapers/3840x2160/172141.jpg")
+my_data = {"name": "Chetan", "email": "chetan@example.com"}
 
-print("status code:", r.status_code)
+r = requests.post("https://www.w3schools.com/php/welcome.php", data=my_data)
 
-image = Image.open(BytesIO(r.content))
-
-print(image.size, image.format, image.mode)
-path = "./image" + image.format
-
-
-
-try:
-    image.save(path, image.format)
-except IOError:
-    print("can not save image,")
+f = open("myfile.html", "w+")
+f.write(r.text)
